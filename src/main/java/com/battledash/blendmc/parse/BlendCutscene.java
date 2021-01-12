@@ -57,7 +57,7 @@ public class BlendCutscene {
             @Override
             public void run() {
                 Frame frame = animation.getFrames().get(this.frameIndex++);
-                player.teleport(new Location(player.getWorld(),
+                player.teleport(new Location(startLocation.getWorld(),
                         frame.getLocation().getX(),
                         frame.getLocation().getY(),
                         frame.getLocation().getZ(),
