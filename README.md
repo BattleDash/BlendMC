@@ -25,10 +25,10 @@ Click for full video:
 
 ## Usage
 
-To use BlendMC, you'll need [Blender 2.8](https://www.blender.org/download/) or newer installed on your computer. Once it's done, you can download the latest release of the BlendMC Exporter Addon [here](https://i.battleda.sh/stuff/mcblend.py/).
+To use BlendMC, you'll need [Blender 2.8](https://www.blender.org/download/) or newer installed on your computer. Once it's done, you can download the latest release of the BlendMC Exporter Addon [here](https://i.battleda.sh/stuff/mcblend.py).
 
 1. Install [Blender 2.8](https://www.blender.org/download/)
-2. Install the BlendMC Exporter Addon [here](https://i.battleda.sh/stuff/mcblend.py/)
+2. Install the BlendMC Exporter Addon [here](https://i.battleda.sh/stuff/mcblend.py)
 3. Select your camera, go to File > Export > BlendMC Camera Exporter, and save as a `.blendmc` file. Put this in your BlendMC plugin data folder.
 
 ## API
