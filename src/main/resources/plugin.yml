@@ -1,0 +1,13 @@
+name: BlendMC
+version: ${project.version}
+main: com.battledash.blendmc.BlendMC
+prefix: BlendMC
+authors: [ BattleDash ]
+description: Blender Camera to Minecraft Cinematic Creator
+website: https://battleda.sh
+
+commands:
+  cutscene:
+    description: Test command
+    permission: blendmc.command.cutscene
+    usage: /cutscene
