@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @author BattleDash
  * @since 1/12/2021
  */
-public class BlendCameraAnimation {
+public class BlendCameraAnimation implements Cloneable {
 
     private final int startFrame;
     private final int endFrame;
@@ -47,6 +47,15 @@ public class BlendCameraAnimation {
 
     public List<Frame> getFrames() {
         return frames;
+    }
+
+    @Override
+    public BlendCameraAnimation clone() {
+        try {
+            return ((BlendCameraAnimation) super.clone());
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 
     @Override

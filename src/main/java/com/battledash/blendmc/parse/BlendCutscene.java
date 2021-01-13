@@ -18,7 +18,7 @@ public class BlendCutscene {
     private Location startLocation;
 
     public BlendCutscene(BlendCameraAnimation animation, Location startLocation) {
-        this.animation = animation;
+        this.animation = animation.clone();
         this.startLocation = startLocation;
         this.animation.getFrames().forEach(f -> f.setLocation(f.getLocation().add(startLocation.toVector())));
     }
