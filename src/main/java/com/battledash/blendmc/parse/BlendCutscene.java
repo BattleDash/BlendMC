@@ -43,7 +43,7 @@ public class BlendCutscene {
         animation.getFrames().forEach(f -> f.getRot().setX(Vector3f.transformFloat(f.getRot().x + ((float) Math.toDegrees(yaw)),
                 180)));
         animation.getFrames().forEach(f -> f.setLocation(MathUtil.rotateLocXZ(f.getLocation(),
-                startLocation.toVector().clone(),
+                startLocation.toVector().clone().setY(f.getLocation().getY()),
                 yaw)));
     }
 
