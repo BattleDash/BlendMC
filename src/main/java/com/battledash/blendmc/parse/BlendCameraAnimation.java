@@ -89,20 +89,30 @@ public class BlendCameraAnimation implements Cloneable {
         int startFrame = Integer.parseInt(strings.get(seek++));
         int endFrame = Integer.parseInt(strings.get(seek++));
         int totalFrames = Integer.parseInt(strings.get(seek++));
+        // Not the cleanest thing, but works for now.
         List<Frame> frames = new ArrayList<>();
+        List<float[]> locations = new ArrayList<>();
+        List<float[]> rotations = new ArrayList<>();
         for (int i = 0; i < totalFrames; i++) {
-            frames.add(new Frame(
-                    new float[]{
-                            Float.parseFloat(strings.get(seek++)),
-                            Float.parseFloat(strings.get(seek++)),
-                            Float.parseFloat(strings.get(seek++))
-                    },
-                    new float[]{
-                            Float.parseFloat(strings.get(seek++)),
-                            Float.parseFloat(strings.get(seek++)),
-                            Float.parseFloat(strings.get(seek++))
-                    }
-            ));
+            locations.add(new float[]{
+                    Float.parseFloat(strings.get(seek++)),
+                    Float.parseFloat(strings.get(seek++)),
+                    Float.parseFloat(strings.get(seek++))
+            });
+            rotations.add(new float[]{
+                    Float.parseFloat(strings.get(seek++)),
+                    Float.parseFloat(strings.get(seek++)),
+                    Float.parseFloat(strings.get(seek++))
+            });
+        }
+        int totalMarkers = Integer.parseInt(strings.get(seek++));
+        List<Marker> markers = new ArrayList<>();
+        for (int i = 0; i < totalMarkers; i++) {
+            markers.add(new Marker(strings.get(seek++), Integer.parseInt(strings.get(seek++))));
+        }
+        for (int i = 0; i < totalFrames; i++) {
+            int finalI = i;
+            frames.add(new Frame(locations.get(i), rotations.get(i), markers.stream().filter(m -> m.frame == finalI).collect(Collectors.toList())));
         }
         return new BlendCameraAnimation(startFrame, endFrame, totalFrames, frames);
     }

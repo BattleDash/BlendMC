@@ -3,8 +3,10 @@ package com.battledash.blendmc.parse;
 import com.battledash.blendmc.BlendMC;
 import com.battledash.blendmc.utils.MathUtil;
 import org.bukkit.Location;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Consumer;
 
 /**
  * An entire cutscene, this includes the {@link BlendCameraAnimation} and the start location of the camera.
@@ -48,10 +50,10 @@ public class BlendCutscene {
     }
 
     public void play(Player player) {
-        play(player, null);
+        play(player, null, null, null);
     }
 
-    public void play(Player player, Runnable endCallback) {
+    public void play(Player player, Runnable startCallback, Runnable endCallback, Consumer<Marker> markerCallback) {
         new BukkitRunnable() {
             int frameIndex = 0;
             @Override
@@ -63,6 +65,9 @@ public class BlendCutscene {
                         frame.getLocation().getZ(),
                         frame.getRot().getX(),
                         frame.getRot().getZ()));
+                if (frameIndex <= 1) startCallback.run();
+                ((CraftPlayer) player).getHandle().x().getPlayerChunkMap().movePlayer(((CraftPlayer) player).getHandle());
+                frame.getMarkers().forEach(markerCallback::accept);
                 if (this.frameIndex >= animation.getFrames().size()) cancel();
             }
 
