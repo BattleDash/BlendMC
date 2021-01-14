@@ -112,7 +112,7 @@ public class BlendCameraAnimation implements Cloneable {
         }
         for (int i = 0; i < totalFrames; i++) {
             int finalI = i;
-            frames.add(new Frame(locations.get(i), rotations.get(i), markers.stream().filter(m -> m.frame == finalI).collect(Collectors.toList())));
+            frames.add(new Frame(locations.get(i), rotations.get(i), markers.stream().filter(m -> m.getFrame() == finalI).collect(Collectors.toList())));
         }
         return new BlendCameraAnimation(startFrame, endFrame, totalFrames, frames);
     }

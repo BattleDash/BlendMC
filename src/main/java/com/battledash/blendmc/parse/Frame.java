@@ -15,7 +15,7 @@ public class Frame {
 
     private Vector location;
     private final Vector3f rot;
-    private List<Marker> markers;
+    private final List<Marker> markers;
 
     public Frame(float[] location, float[] rotation, List<Marker> markers) {
         // Rearrange Locations a bit here, blender uses a different rotation matrix (XZY)
