@@ -23,6 +23,11 @@
 Click for full video:
 [![example](https://i.battleda.sh/1df746663a9497ac8c8234161ea907b0.png)](https://i.battleda.sh/b75e6bd0a0ecab074296fb6479dcfb3f.mp4)
 
+<p float="left">
+    <img src="https://i.battleda.sh/ef4fa97ab252db96d5e3c4123aa2d121.png" width="50%" />
+    <img src="https://i.battleda.sh/3774568d2e8827917996394e754f3c7c.png" width="49%" />
+</p>
+
 ## Usage
 
 To use BlendMC, you'll need [Blender 2.8](https://www.blender.org/download/) or newer installed on your computer. Once it's done, you can download the latest release of the BlendMC Exporter Addon [here](https://i.battleda.sh/stuff/mcblend.py).
